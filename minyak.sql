@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2024 at 06:38 PM
+-- Generation Time: Feb 19, 2024 at 03:20 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -28,16 +28,30 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `barang` (
-  `id` int(11) NOT NULL,
-  `kod_produk` varchar(45) NOT NULL,
-  `kuantiti` varchar(45) NOT NULL,
-  `harga` varchar(45) NOT NULL,
-  `nilai` varchar(45) NOT NULL,
-  `bayar` varchar(45) NOT NULL,
-  `tarikh_kemaskini` date NOT NULL,
-  `status` varchar(45) NOT NULL,
-  `loginsa_id` int(11) NOT NULL
+  `nom` int(11) NOT NULL,
+  `nama` varchar(50) DEFAULT NULL,
+  `alamat` varchar(200) DEFAULT NULL,
+  `negeri` varchar(45) NOT NULL,
+  `kodproduk` varchar(50) DEFAULT NULL,
+  `kuantiti` varchar(50) DEFAULT NULL,
+  `harga` varchar(50) DEFAULT NULL,
+  `bayar` varchar(50) DEFAULT NULL,
+  `tarikh` date DEFAULT NULL,
+  `idpekerja` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `barang`
+--
+
+INSERT INTO `barang` (`nom`, `nama`, `alamat`, `negeri`, `kodproduk`, `kuantiti`, `harga`, `bayar`, `tarikh`, `idpekerja`) VALUES
+(2, 'mizan', 'Jariah Auto, Taman Sri Keramat', 'Kuala Lumpur', '10', '10', 'RM 78', 'RM 780', '2024-01-17', 1),
+(3, 'Mizan', 'test', 'Kuala Lumpur', 'M3L', '10', '78', '780', '2024-02-07', 2),
+(5, 'Mizan', 'test', 'Kuala Lumpur', 'M3L', '14', '78', 'RM 780', '2024-02-08', 0),
+(6, 'Mizan', 'test', 'Kuala Lumpur', 'D', '14', 'RM 78', 'RM 780', '2024-02-03', 0),
+(7, 'Mizan', 'test', 'Kuala Lumpur', 'D', '14', 'RM 78', 'RM 780', '2024-02-02', 0),
+(8, 'Mizan', 'test', 'Kuala Lumpur', 'D', '14', 'RM 78', 'RM 780', '2024-02-07', 0),
+(9, 'Mizan', 'test', 'Kuala Lumpur', 'D', '10', 'RM 78', 'RM 780', '2024-02-06', 2);
 
 -- --------------------------------------------------------
 
@@ -46,19 +60,19 @@ CREATE TABLE `barang` (
 --
 
 CREATE TABLE `logad` (
-  `id` int(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `emel` varchar(80) NOT NULL,
-  `uname` varchar(20) NOT NULL,
-  `pass` varchar(20) NOT NULL
+  `idad` int(11) NOT NULL,
+  `nama` varchar(50) DEFAULT NULL,
+  `emel` varchar(100) DEFAULT NULL,
+  `uname` varchar(50) DEFAULT NULL,
+  `pass` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `logad`
 --
 
-INSERT INTO `logad` (`id`, `nama`, `emel`, `uname`, `pass`) VALUES
-(1, 'wan dasri shah', 'dasri@gmail.com', 'dasri', 'dasri123'),
+INSERT INTO `logad` (`idad`, `nama`, `emel`, `uname`, `pass`) VALUES
+(1, 'Dasri', 'dasri@gmail.com', 'dasri', 'dasri123'),
 (2, 'Norhanita', 'norhanita@gmail.com', 'hanita', 'hanita123');
 
 -- --------------------------------------------------------
@@ -68,26 +82,24 @@ INSERT INTO `logad` (`id`, `nama`, `emel`, `uname`, `pass`) VALUES
 --
 
 CREATE TABLE `loginsa` (
-  `id` int(11) NOT NULL,
-  `negeri` varchar(20) NOT NULL,
-  `daerah` varchar(30) NOT NULL,
-  `bengkel` varchar(80) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `emel` varchar(100) NOT NULL,
-  `uname` varchar(45) NOT NULL,
-  `pass` varchar(45) NOT NULL
+  `idsa` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `emel` varchar(100) DEFAULT NULL,
+  `uname` varchar(50) DEFAULT NULL,
+  `pass` varchar(45) DEFAULT NULL,
+  `negeri` varchar(50) DEFAULT NULL,
+  `daerah` varchar(100) DEFAULT NULL,
+  `bengkel` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `loginsa`
 --
 
-INSERT INTO `loginsa` (`id`, `negeri`, `daerah`, `bengkel`, `name`, `emel`, `uname`, `pass`) VALUES
-(1, 'Kuala Lumpur', 'Taman Sri Keramat Tengah', 'Jariah Auto', 'Ahmad Basir', 'ahmadbasir@gmail.com', 'basir', 'basir123'),
-(2, 'Kuala Lumpur', 'Tmn. Sri Rampai', 'Maf Compact Auto Services', 'Hasmizan Ismail', 'hasmizan@gmail.com', 'mizan', 'mizan123'),
-(3, 'Negeri Sembilan', 'Nilai', 'Abejak Workshop', 'Abe Jak', 'jak123@gmail.com', 'Abe Jak', 'jak123'),
-(4, 'Negeri Sembilan', 'Nilai', 'Solahudin Enterprise', 'Solahudin', 'solahudin@gmail.com', 'solahudin', 'solahudin123'),
-(5, 'Selangor', 'Kajang', 'kilang', 'Ahmad', 'ahmad@gmail.com', 'ahmad', 'ahmad123');
+INSERT INTO `loginsa` (`idsa`, `name`, `emel`, `uname`, `pass`, `negeri`, `daerah`, `bengkel`) VALUES
+(1, 'Ahmad Basir', 'basir@gmail.com', 'basir', 'basir123', 'Kuala Lumpur', 'Taman Sri Keramat Tengah', 'Jariah Auto'),
+(2, 'Hasmizan Ismail', 'mizan@gmail.com', 'mizan', 'mizan123', 'Kuala Lumpur', 'Taman Sri Rampai', 'Maf Compact Auto Services'),
+(10, 'Abe Jak', 'abejak@gmail.com', 'jak', 'jak123', 'Negeri Sembilan', 'Nilai 2', 'Abejak Workshop');
 
 -- --------------------------------------------------------
 
@@ -96,19 +108,46 @@ INSERT INTO `loginsa` (`id`, `negeri`, `daerah`, `bengkel`, `name`, `emel`, `una
 --
 
 CREATE TABLE `logki` (
-  `id` int(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `emel` varchar(80) NOT NULL,
-  `uname` varchar(20) NOT NULL,
-  `pass` varchar(30) NOT NULL
+  `idki` int(11) NOT NULL,
+  `nama` varchar(50) DEFAULT NULL,
+  `emel` varchar(100) DEFAULT NULL,
+  `uname` varchar(50) DEFAULT NULL,
+  `pass` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `logki`
 --
 
-INSERT INTO `logki` (`id`, `nama`, `emel`, `uname`, `pass`) VALUES
-(1, 'Ahmad', 'ahmad@gmail.com', 'ahmad', 'ahmad123');
+INSERT INTO `logki` (`idki`, `nama`, `emel`, `uname`, `pass`) VALUES
+(1, 'Ahmad Adam', 'adam95@gmail.com', 'adam', 'adam123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `idor` int(11) NOT NULL,
+  `nama` varchar(45) DEFAULT NULL,
+  `negeri` varchar(45) DEFAULT NULL,
+  `alamat` varchar(45) DEFAULT NULL,
+  `senarai` varchar(45) DEFAULT NULL,
+  `tarikh` date DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `idpekerja` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`idor`, `nama`, `negeri`, `alamat`, `senarai`, `tarikh`, `status`, `idpekerja`) VALUES
+(1, 'Basir', 'Kuala Lumpur', 'Jariah auto, Taman Sri Keramat Tengah', 'D:5 FS:10', '2024-01-15', '-', 1),
+(2, 'ubdsaf', 'Kuala Lumpur', 'dsa', 'fddfdsfddfdsfd', '2024-01-26', 'Sedang dihantar', 2),
+(3, 'Basir', 'Kuala Lumpur', 'Jariah Auto, Taman Sri Keramat', 'FS : 10', '2024-02-08', NULL, 1),
+(4, 'Basir', 'Kuala Lumpur', 'Jariah Auto, Taman Sri Keramat', 'FS : 24', '2024-02-06', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -117,20 +156,24 @@ INSERT INTO `logki` (`id`, `nama`, `emel`, `uname`, `pass`) VALUES
 --
 
 CREATE TABLE `report` (
-  `nom` int(250) NOT NULL,
-  `namesa` varchar(30) NOT NULL,
-  `bengkel` varchar(30) NOT NULL,
-  `negeri` varchar(30) NOT NULL,
-  `terang` varchar(150) NOT NULL,
-  `tarikh` date NOT NULL
+  `num` int(11) NOT NULL,
+  `namesa` varchar(50) DEFAULT NULL,
+  `bengkel` varchar(50) DEFAULT NULL,
+  `negeri` varchar(50) DEFAULT NULL,
+  `terang` varchar(50) DEFAULT NULL,
+  `tarikh` date DEFAULT NULL,
+  `idpekerja` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `report`
 --
 
-INSERT INTO `report` (`nom`, `namesa`, `bengkel`, `negeri`, `terang`, `tarikh`) VALUES
-(2, 'Basir', 'Jariah Auto', 'Kuala Lumpur', 'FS:5\r\nD:2\r\nMG:10', '2024-01-01');
+INSERT INTO `report` (`num`, `namesa`, `bengkel`, `negeri`, `terang`, `tarikh`, `idpekerja`) VALUES
+(28, 'Basir', 'Jariah Auto', 'Kuala Lumpur', 'FS : 14\r\nSS : 8', '2024-02-08', 0),
+(37, 'Basir', 'Jariah Auto', 'Kuala Lumpur', 'FS : 12', '2024-02-06', 1),
+(38, 'Basir', 'Jariah Auto', 'Kuala Lumpur', 'D : 10', '2024-01-18', 1),
+(39, 'Mizan', 'Maf Compact Auto Services', 'Kuala Lumpur', 'FS : 20', '2024-02-09', 2);
 
 --
 -- Indexes for dumped tables
@@ -140,70 +183,77 @@ INSERT INTO `report` (`nom`, `namesa`, `bengkel`, `negeri`, `terang`, `tarikh`) 
 -- Indexes for table `barang`
 --
 ALTER TABLE `barang`
-  ADD PRIMARY KEY (`kod_produk`),
-  ADD KEY `fk_barang_loginsa_idx` (`loginsa_id`);
+  ADD PRIMARY KEY (`nom`);
 
 --
 -- Indexes for table `logad`
 --
 ALTER TABLE `logad`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idad`);
 
 --
 -- Indexes for table `loginsa`
 --
 ALTER TABLE `loginsa`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idsa`);
 
 --
 -- Indexes for table `logki`
 --
 ALTER TABLE `logki`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idki`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`idor`);
 
 --
 -- Indexes for table `report`
 --
 ALTER TABLE `report`
-  ADD PRIMARY KEY (`nom`);
+  ADD PRIMARY KEY (`num`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `barang`
+--
+ALTER TABLE `barang`
+  MODIFY `nom` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `logad`
 --
 ALTER TABLE `logad`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `loginsa`
 --
 ALTER TABLE `loginsa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idsa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `logki`
 --
 ALTER TABLE `logki`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idki` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `idor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `nom` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `barang`
---
-ALTER TABLE `barang`
-  ADD CONSTRAINT `fk_barang_loginsa` FOREIGN KEY (`loginsa_id`) REFERENCES `loginsa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  MODIFY `num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

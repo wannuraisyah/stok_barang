@@ -1,0 +1,16 @@
+body{
+	background-color: #FFFFFF;
+}
+
+h2{
+	font-family: consolas;
+}
+
+table{
+	font-family: helvetica;
+	font-size: 15px;
+}
+
+th{
+	background-color: #FFD495;
+}
