@@ -1,5 +1,9 @@
 <?php
 require('config.php');
+session_start();
+if (isset($_GET['idsa'])) {
+    $idpekerja = mysqli_real_escape_string($con, $_GET['idsa']);
+}
 
 if (isset($_POST['del_report'])) {
     $num = $_POST['num'];
@@ -10,7 +14,8 @@ if (isset($_POST['del_report'])) {
         echo "<script> alert('Error deleting record.'); </script>";
     }
     else {
-        echo "<script> alert('Record deleted successfully.'); window.location='pekerja/laporwork.php'; </script>";
+        echo "<script> alert('Record deleted successfully.'); 
+        window.history.back(); </script>";
     }
 }
 
@@ -49,7 +54,7 @@ if (isset($_POST['del_mohon'])) {
         echo "<script> alert('Error deleting record.'); </script>";
     }
     else {
-        echo "<script> alert('Record deleted successfully.'); window.location='pekerja/status.php'; </script>";
+        echo "<script> alert('Record deleted successfully.'); window.history.back(); </script>";
     }
 }
 ?>
