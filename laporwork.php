@@ -32,11 +32,6 @@
 	<script src="https://cdn.lordicon.com/lordicon.js"></script>
 </head>
 <style>
-	/* /* table {
-        width: 90%;
-        max-width: 1000px; adjust the max-width as needed
-        height: auto;
-    } */
 	tr {
         justify-content: center;
         text-align: center;
@@ -45,6 +40,7 @@
 	<?php include '../sidebar.css' ?>
 </style>
 <body>
+<div style="background: #eeeeee; width:100%; height:100%;">
 <div class="sidebar">
 		<div class="logo"></div>
 		<ul class="menu">
@@ -111,7 +107,7 @@
 								<th onclick="sortTable(1)">KUANTITI PRODUK</th>
 								<th onclick="sortTable(2)">HARGA SEBOTOL</th>
 								<!-- <th>NILAI</th> -->
-								<th onclick="sortTable(3)">BAYARAN</th>
+								<th onclick="sortTable(3)">JUMLAH</th>
 								<th onclick="sortTable(4)">TARIKH KEMASKINI</th>
 								<!-- <th>STATUS</th> -->
 								<th>KEMASKINI</th>
@@ -166,10 +162,12 @@
 							</script>
 						</table>  
 						</span>
-					</div></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 </html>

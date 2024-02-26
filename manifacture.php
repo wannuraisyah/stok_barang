@@ -44,11 +44,7 @@ include ('../config.php');
 				<span><img src="../d20-nobg.png" alt="D20 Logo" /></span>
 				<h2>Dashboard</h2>
 			</div>
-				<div class="user-info">
-					<div class="search-box">
-					<i class="fa-solid fa-search"></i>
-					<input type="text" placeholder="Search" />
-					</div>
+			<div class="user-info">
 				<!-- <img src="" alt=""> -->
 			</div>
 		</div>

@@ -13,6 +13,7 @@
 	<?php include '../sidebar.css' ?>
 </style>
 <body>
+<div style="background: #eeeeee; width:100%; height:100%;">
 <div class="sidebar">
 		<div class="logo"></div>
 		<ul class="menu">
@@ -52,7 +53,8 @@
 		<div class="header-wrapper">
 			<div class="header-title">
 				<span><img src="../d20-nobg.png" alt="D20 Logo" /></span>
-				<h2>Dashboard</h2>
+				<br><br>
+				<h2>Senarai bengkel</h2>
 			</div>
 				<div class="user-info">
 					<div class="search-box">
@@ -66,7 +68,7 @@
 			</div>
 		</div>
 		<div class="card-container">
-			<h3 class="main-title">Senarai bengkel</h3>
+			<h3 class="main-title"></h3>
 			<div class="card-wrapper">
 				<div class="data-card">
 					<div class="card-header">
@@ -167,5 +169,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 </html>

@@ -37,6 +37,7 @@ if(isset($_GET["idsa"])) {
 	<?php include '../sidebar.css' ?>
 </style>
 <body>
+<div style="background: #eeeeee; width:100%; height:100%;">
 <div class="sidebar">
 	<div class="logo"></div>
 	<ul class="menu">
@@ -160,6 +161,7 @@ if(isset($_GET["idsa"])) {
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </body>
 </html>

@@ -12,6 +12,7 @@
 	<?php include '../sidebar.css' ?>
 </style>
 <body>
+<div style="background: #eeeeee; width:100%; height:100%;">
 <div class="sidebar">
         <div class="logo"></div>
 		<ul class="menu">
@@ -43,8 +44,12 @@
 		</div>
 		<div class="user-info">
 			<div class="search-box">
-			<i class="fa-solid fa-search"></i>
-			<input type="text" placeholder="Search" />
+				<form method="GET">
+					<div class="input-group">
+					<input type="text" id="search" name="search" class="form-control" placeholder="Search" />
+					<button type="submit" class="btn btn-primary">Search</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -53,7 +58,7 @@
 		<div class="card-wrapper">
 			<div class="data-card">
 				<div class="card-header">
-					<div class="data">
+					<div class="data searchable">
 						<table class="table table-bordered" id="data" border="2px" cellspacing="1" cellpadding="3">
 							<tr>
 								<th onclick="sortTable(0)">NAMA SALESMAN</th>
@@ -66,7 +71,6 @@
 							</tr>
 							<?php
 							include('../config.php');
-							//baiki php
 							$show = mysqli_query($con, "SELECT * FROM orders");
 								while ($res = mysqli_fetch_array($show)) {
 								// $idor=$res['idor'];
@@ -81,6 +85,36 @@
 									echo "</tr>";
 								}
 							?>
+							<script>
+								document.getElementById('search').addEventListener('input', function() {
+									var filter, tableContainers, trs, tds, i, j, txtValue;
+									filter = document.getElementById('search').value.toUpperCase();
+									tableContainers = document.querySelectorAll('.searchable');
+
+									for (i = 0; i < tableContainers.length; i++) {
+										trs = tableContainers[i].querySelectorAll('tr');
+
+										for (j = 0; j < trs.length; j++) {
+											if (trs[j].querySelector('th')) {
+												continue;
+											}
+
+											tds = trs[j].querySelectorAll('td');
+											var found = false;
+
+											for (var k = 0; k < tds.length; k++) {
+												txtValue = tds[k].textContent || tds[k].innerText;
+												if (txtValue.toUpperCase().indexOf(filter) > -1) {
+													found = true;
+													break;
+												}
+											}
+
+											trs[j].style.display = found ? '' : 'none';
+										}
+									}
+								});
+							</script>
 							<script>
 							function sortTable(columnIndex) {
 								var table, rows, switching, i, x, y, shouldSwitch;
@@ -119,6 +153,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </body>
 </html>

@@ -28,10 +28,6 @@ if (isset($_POST['tambah'])) {
 	}
 }
 ?>
-<?php
-$calculate=array('kuantiti', 'harga');
-echo array_sum($calculate);
-?>
 
 <!DOCTYPE html>
 <html>
