@@ -87,7 +87,17 @@ include ('../config.php');
                             <b>---Maklumat Bengkel---</b>
                             <div class="mb-3">
                                 <label for="negeri" class="form-label">Negeri</label>
-                                  <input type="text" class="form-control" name="negeri" id="" placeholder="Masukkan negeri" required>
+                                  <select type="text" class="form-control" name="negeri" id="" placeholder="Masukkan negeri" required>
+                                    <option value="selangor">Selangor</option>
+                                    <option value="kuala lumpur">Kuala Lumpur</option>
+                                    <option value="pahang">Pahang</option>
+                                    <option value="terengganu">Terengganu</option>
+                                    <option value="kelantan">Kelantan</option>
+                                    <option value="kedah">Kedah</option>
+                                    <option value="pulau pinang">Pulau Pinang</option>
+                                    <option value="perak">Perak</option>
+                                    <option value="negeri sembilan">Negeri Sembilan</option>
+                                  </select>
                             </div>
                             <div class="mb-3">
                                 <label for="daerah" class="form-label">Alamat</label>

@@ -116,8 +116,13 @@ if (isset($_POST['keep'])) {
 									<td><input type="text" name="tarikh" value="<?php echo $tarikh; ?>" readonly></td>
 								</tr><br><br>
 								<tr bgcolor="">
-									<td>Status:</td>
-									<td><input type="text" name="status" value="<?php echo $status; ?>" required></td>
+									<td><label for="status">Status:</label></td>
+									<td><select type="text" name="status" value="<?php echo $status; ?>" required>
+									<option value="sedang diproses">Sedang Diproses</option>
+									<option value="sedang dihantar">Sedang Dihantar</option>
+									<option value="telah terima">Telah Diterima</option>
+									</select>
+								</td>
 								</tr><br><br>
 								<tr bgcolor="" align="center">
 									<td><input type="submit" name="keep" value="Kemaskini" class="btn btn-primary"></td><br><br>
